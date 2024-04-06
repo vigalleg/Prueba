@@ -6,20 +6,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.io.ApiService
 import com.example.myapplication.io.LoginRequest
-import com.example.myapplication.io.response.LoginResponse
 import com.example.myapplication.util.PreferenceHelper
 import com.example.myapplication.util.PreferenceHelper.get
 import com.example.myapplication.util.PreferenceHelper.set
-import com.example.myapplication.util.PreferenceHelper.defaultPrefs
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.HttpException
 import retrofit2.Response
-
-
 
 class Login : AppCompatActivity() {
 
@@ -32,22 +28,32 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login2)
 
-
         val preferences = PreferenceHelper.defaultPrefs(this)
         if(preferences["jwt",""].contains(".")) {
-            goToMenu()
+            //goToMenu()
         }
-            Toast.makeText(applicationContext, "prueba",Toast.LENGTH_SHORT).show()
+           // Toast.makeText(applicationContext, "prueba",Toast.LENGTH_SHORT).show()
 
 
         val btnGoMenu=findViewById<Button>(R.id.button)
         btnGoMenu.setOnClickListener{
             performLogin()
         }
+
+        val btnGoRegister = findViewById<TextView>(R.id.register)
+        btnGoRegister.setOnClickListener{
+            goToRegister()
+        }
+    }
+
+    private fun goToRegister(){
+        val i = Intent(this, Registro::class.java)
+        startActivity(i)
+        finish()
     }
 
     private fun goToMenu(){
-        val i = Intent(this, PantallaPrincipal::class.java)
+        val i = Intent(this, Menu::class.java)
         //createSessionPreference()
         startActivity(i)
         finish()

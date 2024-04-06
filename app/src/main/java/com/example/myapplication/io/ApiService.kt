@@ -1,7 +1,6 @@
 package com.example.myapplication.io
 
 
-import com.example.myapplication.io.response.LoginResponse
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -9,7 +8,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 data class LoginRequest(val username: String, val password: String)
 data class RegisterRequest(val username: String, val password: String, val email: String)

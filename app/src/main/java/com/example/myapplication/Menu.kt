@@ -15,7 +15,7 @@ import com.example.myapplication.databinding.ActivityMenuBinding
 class Menu : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-private lateinit var binding: ActivityMenuBinding
+    private lateinit var binding: ActivityMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
